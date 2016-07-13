@@ -1,0 +1,409 @@
+角色：应用开发
+项目编号：RD005
+数据库的链接文件：app.properties
+------------------------------------
+20160615
+myeclipse中pom.xml文件出错，因为缺少tools.jar包：
+直接项目上右键import然后选maven下的一个install选项，导入jdk目录下的那个tools.jar。
+Java代码
+<dependency>    
+            <groupId>com.sun</groupId>      
+            <artifactId>tools</artifactId>    
+            <version>1.5.0</version>  
+            <scope>provid</scope>  
+            <type>jar</type>    
+</dependency> 
+控制台显示缺少spring，Struts，hibernate的jar包的话：
+Window-Preferences选择jetty 6.x
+配置jetty还有JDK的Jetty JDK name一定要是jdk6，不能是MyEclipse
+
+-----------------------------------
+20160616
+周四，五月十二，阴有雨
+缺失msvcr71_MSVCP71_dll导致Navicat运行不起来，下载msvcr71_MSVCP71_dll到本地D:\原始资源\msvcr71_MSVCP71_dll压缩包,按住Win+R键（win 8）或开始--运行 （win95——win7）及cmd工具中输入：
+regsvr32 /s MSVCR71.dll  即可取消系统提示；
+kbs55环境.xls文件中kbs55要改成kbs54
+http://kbs54.demo.xiaoi.com/manager/unimgr/	后台地址
+http://kbs54.demo.xiaoi.com/kbase-core	知识库地址
+http://kbs54.demo.xiaoi.com/kbase-label/	标签地址
+http://kbs54.demo.xiaoi.com/robot	机器人
+http://kbs54.demo.xiaoi.com/kbase-converter/	kbase-converter
+http://kbs54.demo.xiaoi.com/robot-search/	robot-search
+http://172.16.9.54:7440/kbase-report/	kbase-report
+http://172.16.9.54:8081/main/login.jsp	workflow
+http://172.16.9.54:7666/kbase-mobile	移动门户
+
+--------------------------------------------
+20160617
+周五，五月十三，晴
+  以下是周报编写的一些具体要求：
+  1. 周报需要在每周的周六以前发出，发送给我，并互相抄送
+  2. 在周报中，用一个sheet代表一周，比如“2016年1月第4周”这个sheet就代表1月份最后一周
+  3. 在每周填写时，请把上个周的周报复制一份，再创建代表本周的一个新的sheet，比如“2016年2月第一周”，原有的sheet请不要删除（用来做对比）
+  4. 每周的周报中，主要内容是按照季度的OKR为模块，在每个特定的工作模块（比如培训考试模块开发）中，说明以下问题：
+      . 上周制定的本周的工作计划（从上周的周报中复制）
+      . 本周的实际工作内容
+      . 本周的主要成果和出现的问题
+      . 下周的工作计划
+    如果在特定工作模块中，本周没有什么计划或者新的工作进展，也没有出现什么问题，那么可以保留空白
+下载学习Total Commander
+http://gzydkbs.demo.xiaoi.com/kbase-core/main.htm 
+admin admin
+http://gzyd.demo.xiaoi.com/manager/authmgr/login.jsp 
+liuwanpeng 111111
+广州移动环境，修改tab页打开方式，所有打开tab页可能都会影响到。移动知识库差异跟产品很大，你们可能会有很多功能不清楚，有不清楚的地方请问一下张志峰。张志峰来解答差异的部分。
+http://172.16.5.49:8080/projects/KBS/summary对应账户密码：
+账户：ainloong.sha
+密码：ainloong
+10086原子化：http://gzydkbs.demo.xiaoi.com/kbase-core/main.htm
+账户：admin
+密码：admin
+JIRA是Atlassian公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。
+Redmine是用Ruby开发的基于web的项目管理软件，是用ROR框架开发的一套跨平台项目管理系统
+禅道地址（bugList地址）
+http://172.16.5.49:8080/secure/Dashboard.jspa
+账号规则：ainloong.sha 密码：ainloong
+这个是我们的产品反馈地址：
+http://172.16.5.49:8080/browse/KBS-1
+先结合bug和源代码，看下是需求还是存在bug，分析和重现下是如何产生的 
+李卫聪task：
+http://kbs54.demo.xiaoi.com/kbase-core/main.htm
+8:OK
+考试管理 操作-管理 重置搜索条件是，批次和考试状态不重置
+9：OK
+考试管理 查看界面 考试说明为必填项目
+10：NG
+考试管理 不能发布成绩
+11：
+考试管理 新增、编辑考试的考时限制没做数字判定
+---------------------------------
+20160620
+周一，五月十六，晴有雨。
+
+//加载数据表单函数
+	loadForm = function(){
+		$('body').ajaxLoading('正在查询数据...');
+		var isShowOff;
+		if($("#isShowOff").is(":checked")){
+			isShowOff = 1;
+		}else{
+			isShowOff = 0;
+		}
+		var param = {
+			pageNo:$("#pageNo").val(),
+			content:$("#quesContent").val(),//
+			//kbValue:$("#kbValue").val(),
+			startDate:$("#starttime_select").val(),//
+			endDate:$("#endtime_select").val(),//
+			quesTypeId:$("#status_select").val(),
+			quesCateId:$("#quesCateId").val(),
+			level:$("#level_select").val(),
+			status:$("#status").val(),
+			isShowOff:isShowOff
+		};
+		$.ajax({
+			type: "POST",
+			url: $.fn.getRootPath()+"/app/learning/paper!listPage.htm",
+			data: param,
+			success: function(htmlResult) {
+				var tab = $('#quesList');
+	        	$(tab).find("tr:not(:first)").remove();
+	        	$(tab).find("tr:first").after($(htmlResult).find('tr'));
+	        	$('body').ajaxLoadEnd();
+			}
+		});
+	}
+
+
+pageNo:1
+content:
+startDate:
+endDate:
+quesTypeId:
+quesCateId:3428a92f54ffb6ef0155001bb2440013
+level:
+status:
+isShowOff:0
+http://localhost:8771/kbase-core/app/author/menu.jsp
+http://localhost:8771/kbase-core/app/learning/ques!getQuesListJson.htm?content=&endDate=&isShowOff=0&level=&quesCateId=3428a92f54ffb6ef0155001bb2440013&quesTypeId=&startDate=&status=
+
+http://localhost:8771/kbase-core/app/learning/paper!listPage.htm?paperModel.paperCate.bh=1a3f8fda7ce546f387161c85e07ec24a&paperNames=&paperIds=&paperModel.name=&quesContent=&paperModel.startTime=&paperModel.endTime=&paperModel.status=&paperModel.level=&pageNo=1
+
+http://localhost:8771/kbase-core/app/learning/ques!getQuesListJson.htm?pageNo=1&content=&startDate=&endDate=&quesTypeId=&quesCateId=3428a92f54ffb6ef0155001bb2440013&level=&status=&isShowOff=0
+李卫聪task：
+http://kbs54.demo.xiaoi.com/kbase-core/main.htm
+8:OK
+考试管理 操作-管理 重置搜索条件是，批次和考试状态不重置
+9：OK
+考试管理 查看界面 考试说明为必填项目
+10：NG
+考试管理 不能发布成绩
+11：OK
+考试管理 新增、编辑考试的考时限制没做数字判定
+12：Ok
+考试管理 按钮名字为“提交”，改成“查询”
+13：OK
+考试管理 操作-管理 加时对时间大小限制，不能为负数
+14：OK
+考试管理 操作-管理 编辑成绩无限制，不能为负数
+15：OK
+考试管理 操作-管理 编辑成绩提示框显示不全
+16：OK
+考试管理 主界面考试数量超过一页显示信息不全
+
+		function loadForm(){
+        $('body').ajaxLoading('正在查询数据...');
+        var isShowOff;
+        if($("#isShowOff").is(":checked")){
+            isShowOff = 1;
+        }else{
+            isShowOff = 0;
+        }
+        var param = {
+            pageNo:$("#pageNo").val(),
+            content:$("#quesContent").val(),
+            startDate:$("#starttime_select").val(),
+            endDate:$("#endtime_select").val(),
+            quesTypeId:$("#status_select").val(),
+            quesCateId:$("#quesCateId").val(),
+            level:$("#level_select").val(),
+            status:$("#status").val(),
+            isShowOff:isShowOff
+        };
+        $.ajax({
+            type: "POST",
+            url: $.fn.getRootPath()+"/app/learning/paper!listPage.htm",
+            data: param,
+            success: function(htmlResult) {
+                //var tab = $('#quesList');
+                //$(tab).find("tr:not(:first)").remove();
+                //$(tab).find("tr:first").after($(htmlResult).find('tr'));
+                //$('body').ajaxLoadEnd();
+            }
+        });
+    }
+    
+pageClick(1);
+-----------------------------------------------
+20160621
+周二，五月十七，晴。
+
+李卫聪task：
+http://kbs54.demo.xiaoi.com/kbase-core/main.htm
+8:OK
+考试管理 操作-管理 重置搜索条件是，批次和考试状态不重置
+9：OK
+考试管理 查看界面 考试说明为必填项目
+10：NG
+考试管理 不能发布成绩
+11：OK
+考试管理 新增、编辑考试的考时限制没做数字判定
+12：Ok
+考试管理 按钮名字为“提交”，改成“查询”
+13：OK
+考试管理 操作-管理 加时对时间大小限制，不能为负数
+14：OK
+考试管理 操作-管理 编辑成绩无限制，不能为负数
+15：OK
+考试管理 操作-管理 编辑成绩提示框显示不全
+16：OK
+考试管理 主界面考试数量超过一页显示信息不全
+18：OK
+试卷管理 移动分类移动成功后不会刷新界面
+21：OK
+学习培训按有限期搜索条件不同
+WinSCP
+主机名：172.16.9.55
+端口号：12598
+用户名：root
+密码：508956
+51：ssh-rsa 2048 78:76:8e:6d:7c:29:ee:1c:e9:c6:4d:59:3a:94:2a:b2
+54：ssh-rsa 2048 78:76:8e:6d:7c:29:ee:1c:e9:c6:4d:59:3a:94:2a:b2
+55：ssh-rsa 2048 78:76:8e:6d:7c:29:ee:1c:e9:c6:4d:59:3a:94:2a:b2
+--------------------------------------------
+20160622
+周三，五月十八，阴。
+睡到七点多，好累啊，实在是不想起，八点多才出门，一个劲地想睡觉。华师大这里买早饭，生怕晕倒在地铁上。上午倪倩倩给我发了一个JIRA，是窗口的大小调整的问题，我没有仔细看就关闭了JIRA，不好，会被占钊发现我水平低的。上午的时候下大雨，中午大家都叫了外卖。下午困得慌，好想睡觉，给程林配置环境，没有成功，myeclipse6.5太垃圾了，用的极度不好。下班前安装了myeclipse2014，然后破解汉化。
+http://localhost:8771/kbase-core/app/search/object-search!
+.htm?objId=001432535319445352320050569527b6&versionIds=127;2,126;1
+--------------------------------
+20160623
+周四，五月十九，晴。
+给程林配环境，下午做事，李卫聪给我的task，有点难度
+----------------------------------------------------
+周五，五月二十，晴。
+IP:172.16.7.138:8771
+配置负载地址：
+http://kbs54.demo.xiaoi.com/kbase-core/app/auther/system!server.htm
+http://localhost:8771/kbase-core/app/auther/system!server.htm
+地址一定要有端口号
+IP:172.16.7.138:8771
+http://localhost:8771/kbase-core/app/point/p-strategy!savePStrategy.htm中看action在PStrategyAction中找方法
+积分管理要在app-expand.properties中改
+Line107：points.enable=false改成points.enable=true
+知识库产品KBS-1 KBS测试KBS-150：
+51演示环境 显示类 火狐/IE8 积分管理 新建策略 有效期 选择日期 界面显示问题
+时间控件采用的是WdatePicker.js，其中对于position的描述为position:{},没有限制，不是bug
+-------------------------------------------------------
+20160628
+周二，五月廿四，阴有雨。
+154环境
+172.16.1.154 12598 wanpeng.liu/123456
+此路径下的app.properties和app-expend.properties替换到本地就是行
+/app/jetty_kbase/webapps/kbase-core/WEB-INF/classes
+
+<!-- add by ainloong at 2016-06-28 取消右键关联  --%>
+今天存在的问题：1、分类展示页面工具条随鼠标滚动 2、模糊搜索单击页面展示进入后无法显示分类路径 3、C11 右侧Flag挡住了归属地和品牌的选择 4、分类展示页面P4显示有时候宽度无法自适应 5、Tab页右键菜单只保留刷新和关闭其他页签
+---------------------------------------------------------
+20160629
+周三，五月廿五，阴有雨。
+横向显示的问题
+header.js中$('#kbs-bookmark').click(function(){}函数
+以及main.jsp中新增加了对象的方法resizeTab: function(width, height, timeout){}
+横向显示的问题我用if ($('#tabs').tabs('tabs').length==1){}替代了if ($('#tabs').length==1){}，占钊说不对，毕老师在跟进。
+--------------------------------------------------------------------
+20160630
+周四，五月廿六，晴。
+上午解决路径的问题，4G流量王
+--------------------------------------------------------------
+20160701
+周五，五月廿七，阴有小雨。
+4、分类展示页面P4显示有时候宽度无法自适应?
+5、Tab页右键菜单只保留刷新和关闭其他页签
+火狐的firebug真的是个好东西
+JIRA：知识库产品KBS-1 KBS测试KBS-151：
+51演示环境 功能类 积分管理 新建策略 可以新建相同动作资源的积分策略保存成功 不合理
+完成：修改selectResource函数，使动作资源名不能重复
+改动的source：
+Strategyinfo.jsp
+PStrategyAction
+KBS-152：51演示环境 功能类 积分管理 积分策略 可以新建两个策略名称完全相同的策略 不合理
+完成：新增对策略名称的判断函数，使其不能重名
+改动的source：
+Strategyinfo.jsp
+PStrategyAction
+KBS-153：51演示环境 功能类 积分管理 积分为0的用户 首次编辑积分和首次正常积分都没有初始化积分
+完成：编辑界面edituserpoints.jsp最新版本是6/8/15，很久没有修改过积分显示，请确认积初始化的样式，格式，以及效果对比
+KBS-154：51演示环境 显示类 积分管理 积分设置 搜索栏 角色选择项显示为灰色 积分明细 搜索栏 积分设置选项显示为灰色 不合理
+当前select样式采用的是color: #959595;如果觉得不妥，请备注参考颜色属性，rgb()或者#000000均可
+知识库产品KBS-1 KBS测试KBS-156
+时间控件采用的是WdatePicker.js，界面是设定好的，无需在意
+KBS测试KBS-157：51演示环境 积分管理 积分项配置 启用启用项 停用停用项 弹框提示语不正确
+对于停用按钮，实现的是停用功能，无法判断出你想要停用还是启用，请提供明确需求
+--------------------------------------------------------------
+20160704
+周一，六月初一，晴，阵雨。
+广州移动环境：
+刘万鹏154环境：172.16.1.154 12598 wanpeng.liu/123456
+此路径下的app.properties和app-expend.properties替换到本地就是行
+/app/jetty_kbase/webapps/kbase-core/WEB-INF/classes
+安装SQLDevelop时候输入select语句时按键失灵是因为软件的编码和电脑的编码不一致导致，工具-首选项-环境-编码-UTF-8即可
+流量王的问题，殷志祥没有做
+-----------------------------------------------------------
+20160705
+周二，六月初二，晴。
+4G流量王
+构建项目时，说缺少spring等jar在构建路径是的顺序中maven依赖的顺序要在上面
+路径问题：Category.js中暂时先注释掉//location.href='#'+questionId;
+kindeditor的使用问题：http://kindeditor.net/docs/usage.html
+使用ckeditor时候textarea的属性中要加class="ckeditor"
+<script>
+window.onload=function(){
+CKEDITOR.replace('bulletin.content');
+}
+</script>
+{
+        toolbar : 'Basic',
+        uiColor : '#9AB8F3'
+    });
+
+
+http://localhost:8771/kbase-core/app/notice/bulletin!read.htm?id=402883435456ced5015456f48e020206&
+var editorConfig = {
+					customConfig: '${pageContext.request.contextPath }/library/ckeditor/config.js'
+				}
+				CKEDITOR.replace('content', editorConfig);
+--------------------------------------------------------
+20160706
+周三，六月初三，晴。
+4G流量王
+TeamViewer我的ID：642 153 405（动态变化）
+密码:3811（动态变化）
+伙伴ID：399505592
+密码：ibotkbase
+TV账户姓名：Hailong.sha
+邮件：462148780@qq.com
+密码：c19
+公司自定义计算机名称：Sha@xiaoi
+密码：Sha@xiaoi
+移动的154环境：http://gzydkbs.demo.xiaoi.com/kbase-core/main.htm#nogo
+路径不显示的问题在154里解决了，殷志祥在测试测试
+Category.js中注释掉location.href='#'+questionId;
+ckeditor替换task:
+config.js和edit.jsp
+Linux命令：
+cd p/jetty_kbase
+ls
+sudo ./jetty.sh stop
+sudo ./jetty.sh start
+20160706_广州移动问题
+1.OK 
+电脑浏览器宽屏路径不显示的问题 
+2.OK 
+ckeditor替换 
+3.部分OK 
+TAB页面尺寸（紧急） 
+3.1：文字超限显示6文字+...（OK） 
+3.2：TAB过多分行显示（NG） 
+4.（未实施） 
+殷志祥提出的点击不了事件
+PS：均在154环境测试通过
+--------------------------------------------
+20160707
+周四，六月初四，晴。
+4G流量王
+发布范围不能选择，曹远欣屏蔽了发布方法
+TAB页面显示悬浮可以，增加title属性，多行显示不行，前端调试要考虑浏览器的兼容性
+ewebeditor资料：
+http://www.ewebeditor.net/
+----------------------------------------
+20160708
+周五，六月初五，晴。
+上午忙着ewebeditor的安装，没成功。毕小栓在跟进，下午跟进殷志祥的点击不了事件，IE7就是烦,毕小栓说我的悬停显示有样式问题
+-------------------------------
+201607011
+周一，六月初八，阴有雨。
+上午修改TAB和ckeditor，
+$(function(){
+				var editor = CKEDITOR.replace('editor', {
+					customConfig: '${pageContext.request.contextPath}/library/ckeditor/config_full.js'
+				});
+很重要，放在$(function()内外要考虑
+查网站更新时间代码：javascript:alert(document.lastModified);
+154的manager账号：liuwanpeng
+密码 ：111111
+TAB悬停显示，6字符+...未修正完了
+置顶失效时间
+-----------------------------------------------
+201607012
+周二，六月初九，阴有雨。
+dbtool的154路径：
+/app/updata/dbtool-20160415/classes
+main.jsp中用span标签代替怕标签可以解决tab的样式问题，找对目标找准方向很重要
+.tabs-wrap{
+	position:relative;
+	left:0px;
+	/* overflow:hidden; */
+	overflow:visible;
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+广州移动154后台manager地址：
+http://gzyd.demo.xiaoi.com/manager/authmgr/login.jsp
+winSCP的链接i1989.cn
+文件协议：FTP
+主机名：121.41.119.19
+端口号：21
+用户名：hyw1129640001
+密码：c19
