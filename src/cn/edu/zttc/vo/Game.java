@@ -1,5 +1,10 @@
 package cn.edu.zttc.vo;
 
+/**
+ * 
+ * @author 沙海龙
+ * @date 2017-1-6
+ */
 public class Game {
 	Hunter hunter;
 	Monster m1,m2,m3,m4,m5;
