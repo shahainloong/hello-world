@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	
+	<property name="src.dir" location="src"></property>
+	<fileset id="src.path" dir="src" includes="**/*.*"></fileset>
+	<target name="init">
+		<delete dir="build"></delete>
+		<mkdir dir="build"/>
+		<mkdir dir="build/src"/>
+		<mkdir dir="build/classes"/>
+		<mkdir dir="build/dist"/>
+	</target>
+	
+	<target name="copySrc" depends="init">
+		<copy todir="build/src">
+			<fileset refid="src.path"></fileset>
+		</copy>
+	</target>
+</project>
