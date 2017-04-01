@@ -1,8 +1,13 @@
 package com.orm;
 
+/**
+ * <p>Description: 稿费</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-1
+ */
 public class Tgaofei
 {
-
 	private int id;
 	private int jine;
 	private String shijian;

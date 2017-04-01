@@ -85,7 +85,7 @@ CREATE TABLE `t_zhuanjia` (
 -- ----------------------------
 -- Records 
 -- ----------------------------
-INSERT INTO `t_admin` VALUES ('1', 'a', 'a');
+INSERT INTO `t_admin` VALUES ('1', 'admin', '123');
 INSERT INTO `t_gaofei` VALUES ('6', '100', '2012-8-1 11:00:55', '2', 'no');
 INSERT INTO `t_gaojian` VALUES ('4', '北京发生特大自然灾害之暴雨', '北京发生特大自然灾害之暴雨', '/upload/1343789838210.doc', '附件.doc', '2012-8-1 10:57:19', '2', 'shenhetongguo', '不错，很好', 'shenhetongguo', '不错，很好', 'fou', 'no');
 INSERT INTO `t_gaojian` VALUES ('5', '测试稿件测试稿件', '测试稿件测试稿件', '/upload/1343799628275.doc', '附件.doc', '2012-8-1 13:40:29', '2', 'shenhetongguo', '很好，不错', 'shenhetongguo', '很好，不错', 'fou', 'no');
