@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * <p>Description: JDBC链接</p>
  * <p>Company: NJUST</p>
  * @author 刘龙强
- * @date 2017-4-2
+ * @date 2017-4-3
  */
 public class DB
 {
