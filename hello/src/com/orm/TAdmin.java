@@ -14,12 +14,12 @@ public class TAdmin
 	private int userId;
 	
 	/**
-	 * 管理员姓名，NULL类型，默认admin
+	 * 管理员姓名，NULL允许，默认admin
 	 */
 	private String userName;
 
 	/**
-	 * 管理员密码，NULL类型，默认123
+	 * 管理员密码，NULL允许，默认123
 	 */
 	private String userPw;
 

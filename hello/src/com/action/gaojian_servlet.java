@@ -133,7 +133,7 @@ public class gaojian_servlet extends HttpServlet
 				gaojian.setUser_id(rs.getInt("user_id"));
 				gaojian.setZhuanjiashenhebiaozhi(rs.getString("zhuanjiashenhebiaozhi"));
 				
-				gaojian.setzhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
+				gaojian.setZhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
 				gaojian.setZhubianshenhebiaozhi(rs.getString("zhubianshenhebiaozhi"));
 				gaojian.setZhubianshenheyijian(rs.getString("zhubianshenheyijian"));
 				gaojian.setShifoufabiao(rs.getString("shifoufabiao"));
@@ -181,7 +181,7 @@ public class gaojian_servlet extends HttpServlet
 				gaojian.setUser_id(rs.getInt("user_id"));
 				gaojian.setZhuanjiashenhebiaozhi(rs.getString("zhuanjiashenhebiaozhi"));
 				
-				gaojian.setzhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
+				gaojian.setZhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
 				gaojian.setZhubianshenhebiaozhi(rs.getString("zhubianshenhebiaozhi"));
 				gaojian.setZhubianshenheyijian(rs.getString("zhubianshenheyijian"));
 				gaojian.setShifoufabiao(rs.getString("shifoufabiao"));
@@ -241,7 +241,7 @@ public class gaojian_servlet extends HttpServlet
 				gaojian.setUser_id(rs.getInt("user_id"));
 				gaojian.setZhuanjiashenhebiaozhi(rs.getString("zhuanjiashenhebiaozhi"));
 				
-				gaojian.setzhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
+				gaojian.setZhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
 				gaojian.setZhubianshenhebiaozhi(rs.getString("zhubianshenhebiaozhi"));
 				gaojian.setZhubianshenheyijian(rs.getString("zhubianshenheyijian"));
 				gaojian.setShifoufabiao(rs.getString("shifoufabiao"));
@@ -287,7 +287,7 @@ public class gaojian_servlet extends HttpServlet
 				gaojian.setUser_id(rs.getInt("user_id"));
 				gaojian.setZhuanjiashenhebiaozhi(rs.getString("zhuanjiashenhebiaozhi"));
 				
-				gaojian.setzhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
+				gaojian.setZhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
 				gaojian.setZhubianshenhebiaozhi(rs.getString("zhubianshenhebiaozhi"));
 				gaojian.setZhubianshenheyijian(rs.getString("zhubianshenheyijian"));
 				gaojian.setShifoufabiao(rs.getString("shifoufabiao"));
@@ -347,7 +347,7 @@ public class gaojian_servlet extends HttpServlet
 				gaojian.setUser_id(rs.getInt("user_id"));
 				gaojian.setZhuanjiashenhebiaozhi(rs.getString("zhuanjiashenhebiaozhi"));
 				
-				gaojian.setzhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
+				gaojian.setZhuanjiashenheyijian(rs.getString("zhuanjiashenheyijian"));
 				gaojian.setZhubianshenhebiaozhi(rs.getString("zhubianshenhebiaozhi"));
 				gaojian.setZhubianshenheyijian(rs.getString("zhubianshenheyijian"));
 				gaojian.setShifoufabiao(rs.getString("shifoufabiao"));

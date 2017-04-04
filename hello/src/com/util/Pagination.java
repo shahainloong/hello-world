@@ -2,7 +2,12 @@ package com.util;
 
 import java.util.List;
 
-//封装页面显示逻辑
+/**
+ * <p>Description: 封装页面显示逻辑</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-2
+ */
 public class Pagination
 {
 

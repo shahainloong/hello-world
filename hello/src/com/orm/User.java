@@ -14,37 +14,37 @@ public class User
 	private int id;
 
 	/**
-	 * 用户姓名，NULL类型
+	 * 用户姓名，NULL允许
 	 */
 	private String name;
 
 	/**
-	 * 用户性别，NULL类型
+	 * 用户性别，NULL允许
 	 */
 	private String sex;
 
 	/**
-	 * 用户年龄，NULL类型
+	 * 用户年龄，NULL允许
 	 */
 	private String age;
 
 	/**
-	 * 用户电话，NULL类型
+	 * 用户电话，NULL允许
 	 */
 	private String tel;
 
 	/**
-	 * 用户地址，NULL类型
+	 * 用户地址，NULL允许
 	 */
 	private String address;
 
 	/**
-	 * 用户登录名，NULL类型
+	 * 用户登录名，NULL允许
 	 */
 	private String loginName;
 
 	/**
-	 * 用户登录密码，NULL类型
+	 * 用户登录密码，NULL允许
 	 */
 	private String loginPw;
 

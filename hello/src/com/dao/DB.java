@@ -6,6 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * <p>Description: JDBC链接</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-2
+ */
 public class DB
 {
 	private Connection con;
