@@ -15,12 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.DB;
 import com.orm.TAdmin;
 
+/**
+ * <p>Description: 主编的servlet</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-9
+ */
 public class admin_servlet extends HttpServlet
 {
 	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException, IOException 
 	{
         String type=req.getParameter("type");
-		
+        
+		/*设置不同的类型*/
 		if(type.endsWith("adminMana"))
 		{
 			adminMana(req, res);
@@ -37,7 +44,7 @@ public class admin_servlet extends HttpServlet
 	
 	public void adminMana(HttpServletRequest req,HttpServletResponse res) throws ServletException, IOException
 	{
-		List adminList=new ArrayList();
+		List<TAdmin> adminList = new ArrayList<TAdmin>();
 		String sql="select * from t_admin";
 		Object[] params={};
 		DB mydb=new DB();
@@ -64,6 +71,7 @@ public class admin_servlet extends HttpServlet
 		req.setAttribute("adminList", adminList);
 		req.getRequestDispatcher("admin/admin/adminMana.jsp").forward(req, res);
 	}
+	
 	public void adminAdd(HttpServletRequest req,HttpServletResponse res)
 	{
 		String userName=req.getParameter("userName");

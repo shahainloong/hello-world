@@ -19,27 +19,6 @@ String path = request.getContextPath();
 		var FrameHide = 0;
 		var curStyle = 1;
 		var totalItem = 9;
-		function ChangeMenu(way){
-			var addwidth = 10;
-			var fcol = top.document.all.btFrame.cols;
-			if(way==1) addwidth = 10;
-			else if(way==-1) addwidth = -10;
-			else if(way==0){
-				if(FrameHide == 0){
-					preFrameW = top.document.all.btFrame.cols;
-					top.document.all.btFrame.cols = '0,*';
-					FrameHide = 1;
-					return;
-				}else{
-					top.document.all.btFrame.cols = preFrameW;
-					FrameHide = 0;
-					return;
-				}
-			}
-			fcols = fcol.split(',');
-			fcols[0] = parseInt(fcols[0]) + addwidth;
-			top.document.all.btFrame.cols = fcols[0]+',*';
-		}
 		
 		function logout()
 		{
@@ -65,7 +44,6 @@ String path = request.getContextPath();
 			        	<!--  [<a href="" target="_blank">网站主页</a>]-->
 			        	
 			        	[<a href="#" onclick="logout()">注销退出</a>]
-						[<a href="javascript:ChangeMenu(0);">显示主框架</a>]
 			      </td>
 	          </tr>
 	        </table>

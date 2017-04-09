@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
 
-
 import com.dao.DB;
 import com.orm.TAdmin;
 import com.orm.Tzhuanjia;
@@ -18,9 +17,6 @@ import com.orm.User;
 
 public class loginService
 {
-	
-	
-	
 	public String login(String userName,String userPw,int userType)
 	{
 		System.out.println("userType"+userType);
@@ -29,13 +25,12 @@ public class loginService
 			Thread.sleep(700);
 		} catch (InterruptedException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		String result="no";
 		
-		if(userType==0)//ÏµÍ³¹ÜÀíÔ±µÇÂ½
+		if(userType==0)//系统管理员登陆
 		{
 			String sql="select * from t_admin where userName=? and userPw=?";
 			Object[] params={userName,userPw};
@@ -65,7 +60,7 @@ public class loginService
 			} 
 			catch (SQLException e)
 			{
-				System.out.println("µÇÂ¼Ê§°Ü£¡");
+				System.out.println("登录失败！");
 				e.printStackTrace();
 			}
 			finally
@@ -111,7 +106,7 @@ public class loginService
 			} 
 			catch (SQLException e)
 			{
-				System.out.println("µÇÂ¼Ê§°Ü£¡");
+				System.out.println("登录失败！");
 				e.printStackTrace();
 			}
 			finally
@@ -154,7 +149,7 @@ public class loginService
 			} 
 			catch (SQLException e)
 			{
-				System.out.println("µÇÂ¼Ê§°Ü£¡");
+				System.out.println("登录失败！");
 				e.printStackTrace();
 			}
 			finally
@@ -174,7 +169,6 @@ public class loginService
 		} 
 		catch (InterruptedException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		WebContext ctx = WebContextFactory.get(); 
@@ -199,7 +193,6 @@ public class loginService
 		} 
 		catch (InterruptedException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		WebContext ctx = WebContextFactory.get(); 
@@ -242,6 +235,4 @@ public class loginService
 		return userList;
     }
     
-    
-
 }

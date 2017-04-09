@@ -21,12 +21,21 @@ import com.dao.DB;
 import com.orm.TAdmin;
 import com.orm.User;
 
+
+/**
+ * <p>Description: 普通用户servlet</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-9
+ */
+@SuppressWarnings("serial")
 public class user_servlet extends HttpServlet
 { 
 	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException, IOException 
 	{
 		String type=req.getParameter("type");
 		
+		/*定义用户类型*/
 		if(type.endsWith("userReg"))
 		{
 			userReg(req, res);
@@ -41,9 +50,7 @@ public class user_servlet extends HttpServlet
 		}
 	}
 	
-	
-	
-	
+	/*用户注册*/
 	public void userReg(HttpServletRequest req,HttpServletResponse res)
 	{
 		String name=req.getParameter("name");
@@ -63,8 +70,11 @@ public class user_servlet extends HttpServlet
         String targetURL = "/userReg_re.jsp";
 		dispatch(targetURL, req, res);
 	}
+	
+	/*用户删除*/
 	public void userDel(HttpServletRequest req,HttpServletResponse res)
 	{
+//		获取用户ID
 		int id=Integer.parseInt(req.getParameter("id"));
 		
 		String sql="update t_user set del=? where id=?";
@@ -79,12 +89,14 @@ public class user_servlet extends HttpServlet
         String targetURL = "/common/success.jsp";
 		dispatch(targetURL, req, res);
 	}
+	
 	public void userMana(HttpServletRequest req,HttpServletResponse res) throws ServletException, IOException
 	{
 		List userList=new ArrayList();
 		String sql="select * from t_user where del='no'";
 		Object[] params={};
 		DB mydb=new DB();
+		
 		try
 		{
 			mydb.doPstm(sql, params);
@@ -114,8 +126,6 @@ public class user_servlet extends HttpServlet
 		req.getRequestDispatcher("admin/user/userMana.jsp").forward(req, res);
 	}
 	
-	
-	
 	public void dispatch(String targetURI,HttpServletRequest request,HttpServletResponse response) 
 	{
 		RequestDispatcher dispatch = getServletContext().getRequestDispatcher(targetURI);
@@ -134,6 +144,7 @@ public class user_servlet extends HttpServlet
 		    e.printStackTrace();
 		}
 	}
+	
 	public void init(ServletConfig config) throws ServletException 
 	{
 		super.init(config);

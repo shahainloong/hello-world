@@ -8,6 +8,13 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+
+/**
+ * <p>Description: 中文编码设定：UTF-8</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-9
+ */
 public class EncodingFilter implements Filter {
 	protected String encoding = null;
 

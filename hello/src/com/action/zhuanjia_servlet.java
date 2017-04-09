@@ -22,10 +22,18 @@ import com.orm.TAdmin;
 import com.orm.Tzhuanjia;
 import com.orm.User;
 
+
+/**
+ * <p>Description: 专家servlet</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-9
+ */
 public class zhuanjia_servlet extends HttpServlet
 { 
 	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException, IOException 
 	{
+		/*获取type类型*/
 		String type=req.getParameter("type");
 		
 		if(type.endsWith("zhuanjiaAdd"))
@@ -42,9 +50,11 @@ public class zhuanjia_servlet extends HttpServlet
 		}
 	}
 	
-	
-	
-	
+	/**
+	 * 添加专家
+	 * @param req
+	 * @param res
+	 */
 	public void zhuanjiaAdd(HttpServletRequest req,HttpServletResponse res)
 	{
 		String name=req.getParameter("name");
@@ -67,6 +77,12 @@ public class zhuanjia_servlet extends HttpServlet
         String targetURL = "/common/success.jsp";
 		dispatch(targetURL, req, res);
 	}
+	
+	/**
+	 * 删除专家
+	 * @param req
+	 * @param res
+	 */
 	public void zhuanjiaDel(HttpServletRequest req,HttpServletResponse res)
 	{
 		int id=Integer.parseInt(req.getParameter("id"));
@@ -83,6 +99,14 @@ public class zhuanjia_servlet extends HttpServlet
         String targetURL = "/common/success.jsp";
 		dispatch(targetURL, req, res);
 	}
+	
+	/**
+	 * 专家管理
+	 * @param req
+	 * @param res
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public void zhuanjiaMana(HttpServletRequest req,HttpServletResponse res) throws ServletException, IOException
 	{
 		List zhuanjiaList=new ArrayList();
@@ -117,9 +141,13 @@ public class zhuanjia_servlet extends HttpServlet
 		req.setAttribute("zhuanjiaList", zhuanjiaList);
 		req.getRequestDispatcher("admin/zhuanjia/zhuanjiaMana.jsp").forward(req, res);
 	}
-	
-	
-	
+
+	/**
+	 * V-C映射
+	 * @param targetURI
+	 * @param request
+	 * @param response
+	 */
 	public void dispatch(String targetURI,HttpServletRequest request,HttpServletResponse response) 
 	{
 		RequestDispatcher dispatch = getServletContext().getRequestDispatcher(targetURI);
@@ -138,6 +166,7 @@ public class zhuanjia_servlet extends HttpServlet
 		    e.printStackTrace();
 		}
 	}
+	
 	public void init(ServletConfig config) throws ServletException 
 	{
 		super.init(config);

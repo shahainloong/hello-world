@@ -134,7 +134,7 @@ String path = request.getContextPath();
 	          </ul>
 	        </dd>
 	      </dl>
-	      <dl class='bitem'>
+	     <%--  <dl class='bitem'>
 	        <dt onClick='showHide("items2_1")'><b>稿费信息管理</b></dt>
 	        <dd style='display:block' class='sitem' id='items2_1'>
 	          <ul class='sitemu'>
@@ -142,7 +142,7 @@ String path = request.getContextPath();
 	               <li><a href='<%=path %>/gaofei?type=gaofeiMana' target='main'>稿费信息管理</a> </li>
 	          </ul>
 	        </dd>
-	      </dl>
+	      </dl> --%>
 	      <dl class='bitem'>
 	        <dt onClick='showHide("items99_1")'><b>安全退出系统</b></dt>
 	        <dd style='display:block' class='sitem' id='items99_1'>

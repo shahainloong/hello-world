@@ -20,12 +20,17 @@ import com.orm.TAdmin;
 import com.orm.Tgaojian;
 import com.orm.User;
 
+/**
+ * <p>Description: 稿件servlet</p>
+ * <p>Company: NJUST</p>
+ * @author 刘龙强
+ * @date 2017-4-9
+ */
 public class gaojian_servlet extends HttpServlet
 {
 	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException, IOException 
 	{
         String type=req.getParameter("type");
-		
         
         if(type.endsWith("gaojianAdd"))
 		{
@@ -39,9 +44,6 @@ public class gaojian_servlet extends HttpServlet
 		{
 			gaojianDel(req, res);
 		}
-		
-		
-		
 		
 		if(type.endsWith("gaojianDaishen_zhuanjia"))
 		{
@@ -70,10 +72,9 @@ public class gaojian_servlet extends HttpServlet
 			gaojianYishen_admin(req, res);
 		}
        
-		
 	}
 	
-	
+	/*添加稿件*/
 	public void gaojianAdd(HttpServletRequest req,HttpServletResponse res)
 	{
 		String title=req.getParameter("title");
@@ -107,6 +108,8 @@ public class gaojian_servlet extends HttpServlet
         String targetURL = "/common/success.jsp";
 		dispatch(targetURL, req, res);
 	}
+	
+	/*我的稿件*/
 	public void gaojianMy(HttpServletRequest req,HttpServletResponse res) throws ServletException, IOException
 	{
 		int user_id=((User)req.getSession().getAttribute("user")).getId();
